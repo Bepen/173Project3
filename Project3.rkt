@@ -19,6 +19,10 @@
     [(= inp2 0) inp1]
     [else (gcd inp2 (modulo inp1 inp2))]))
 
+;LCM Method
+(define (lcm inp1 inp2)
+  (/ (* inp1 inp2) (gcd inp1 inp2)))
+
 ;Runs the Math Functions (Absolute Value, Factorial, GCD)
 ;Run Absolute Value
 (display "Enter a number to find its absolute value: ")
@@ -38,9 +42,20 @@
 (display "Finding GCD between 2 numbers:")
 (display "\n")
 (display "First Number: ")
-(define readFactNum1 (read))
+(define readGCDNum1 (read))
 (display "Second Number: ")
-(define readFactNum2 (read))
+(define readGCDNum2 (read))
 (display "GCD: ")
-(gcd readFactNum1 readFactNum2)
+(gcd readGCDNum1 readGCDNum2)
+(display "\n")
+
+;Run LCM
+(display "Finding LCM between 2 numbers:")
+(display "\n")
+(display "First Number: ")
+(define readLCMNum3 (read))
+(display "Second Number: ")
+(define readLCMNum4 (read))
+(display "LCM: ")
+(lcm readLCMNum3 readLCMNum4)
 (display "\n")
