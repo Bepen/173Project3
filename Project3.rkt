@@ -1,4 +1,11 @@
 #lang racket
+;List Functions
+;Append Two Lists
+
+;Set Functions
+;Cardinality
+;(define (cardinalityHelp setHelp counter
+
 ;MATH FUNCTIONS
 ;Absolute Value Method
 (define (abs inp)
@@ -49,13 +56,16 @@
 (gcd readGCDNum1 readGCDNum2)
 (display "\n")
 
-;Run LCM
+;Extra Credit
+(display "Extra Credit Questions")
+(display "\n")
+;Run LCM (Extra Credit)
 (display "Finding LCM between 2 numbers:")
 (display "\n")
 (display "First Number: ")
-(define readLCMNum3 (read))
+(define readLCMNum1 (read))
 (display "Second Number: ")
-(define readLCMNum4 (read))
+(define readLCMNum2 (read))
 (display "LCM: ")
-(lcm readLCMNum3 readLCMNum4)
+(lcm readLCMNum1 readLCMNum2)
 (display "\n")
