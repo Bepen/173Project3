@@ -4,7 +4,13 @@
 
 ;Set Functions
 ;Cardinality
-;(define (cardinalityHelp setHelp counter
+(define (cardinalityHelp setHelp counter)
+  (if (empty? setHelp)
+      counter
+      (cardinalityHelp (set-rest setHelp) (+ counter 1))))
+
+(define (mycardinality set)
+  (cardinalityHelp set 0))
 
 ;MATH FUNCTIONS
 ;Absolute Value Method
@@ -29,6 +35,15 @@
 ;LCM Method
 (define (lcm inp1 inp2)
   (/ (* inp1 inp2) (gcd inp1 inp2)))
+
+
+;Runs the Set Functions (TBD)
+;Run Cardinality
+(display "Enter a set to find the cardinality of: ")
+(define readSet (read))
+(display "Cardinality: ")
+(mycardinality readSet)
+(display "\n")
 
 ;Runs the Math Functions (Absolute Value, Factorial, GCD)
 ;Run Absolute Value
