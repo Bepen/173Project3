@@ -8,6 +8,12 @@
       )
   )
 
+;Reverse
+(define (myreverse listR)
+  (if (= (mycardinality listR) 1)
+      listR
+      (cons (myreverse (cdr listR)) (car listR))))
+
 ;Set Functions
 ;Membership
 (define (mymember element set)
@@ -50,6 +56,7 @@
   (/ (* inp1 inp2) (gcd inp1 inp2)))
 
 ;Runs the List Functions
+;Run Append
 (display "Create the first list: ")
 (define listA (read))
 (display "Create the second list: ")
@@ -58,6 +65,12 @@
 (myappend listA listB)
 (display "\n")
 
+;Run Reverse
+(display "Create a list: ")
+(define listR (read))
+(display "The reverse of that list is: ")
+(myreverse listR)
+(display "\n")
 ;Runs the Set Functions (TBD)
 ;Runs membership
 (display "Enter element to test membership of: ")
