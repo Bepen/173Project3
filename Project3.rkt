@@ -9,6 +9,13 @@
   )
 
 ;Set Functions
+;Membership
+(define (mymember element set)
+  (cond
+    [(= (mycardinality set) 0) #f]
+    [(eq? element (set-first set)) #t]
+    [else (mymember element (set-rest set))]))
+
 ;Cardinality
 (define (cardinalityHelp setHelp counter)
   (if (empty? setHelp)
@@ -52,6 +59,15 @@
 (display "\n")
 
 ;Runs the Set Functions (TBD)
+;Runs membership
+(display "Enter element to test membership of: ")
+(define element (read))
+(display "Enter set: ")
+(define set (read))
+(display "Printing membership status: ")
+(mymember element set)
+(display "\n")
+
 ;Run Cardinality
 (display "Enter a set to find the cardinality of: ")
 (define readSet (read))
