@@ -1,6 +1,12 @@
 #lang racket
 ;List Functions
-;Append Two Lists
+;Append
+(define (myappend listA listB)
+  (if (empty? listA)
+      listB
+      (cons (car listA) (myappend (cdr listA) listB))
+      )
+  )
 
 ;Set Functions
 ;Cardinality
@@ -36,6 +42,14 @@
 (define (lcm inp1 inp2)
   (/ (* inp1 inp2) (gcd inp1 inp2)))
 
+;Runs the List Functions
+(display "Create the first list: ")
+(define listA (read))
+(display "Create the second list: ")
+(define listB (read))
+(display "Appending the first and second list: ")
+(myappend listA listB)
+(display "\n")
 
 ;Runs the Set Functions (TBD)
 ;Run Cardinality
