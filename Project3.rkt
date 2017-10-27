@@ -8,6 +8,12 @@
       )
   )
 
+;Reverse
+(define (myreverse listR)
+  (if (= (mycardinality listR) 1)
+      listR
+      (cons (myreverse (cdr listR)) (car listR))))
+
 ;SET FUNCTIONS
 ;Subset
 (define (mysubset? sub super)
@@ -112,6 +118,13 @@
 (define listB (read))
 (display "Appending the first and second list: ")
 (myappend listA listB)
+(display "\n")
+
+;Run Reverse
+(display "Create a list: ")
+(define listR (read))
+(display "The reverse of that list is: ")
+(myreverse listR)
 (display "\n")
 
 ;Runs the Set Functions (Membership, Cardinality, Subtset)
