@@ -57,6 +57,7 @@
 ;Sum of Factors (helper)
 (define (sumOfFactorsHelp num count sum)
   (cond
+    [(= num 0) (void)]
     [(= count num) sum]
     [(= (modulo num count) 0) (sumOfFactorsHelp num (+ count 1) (+ sum count))]
     [else (sumOfFactorsHelp num (+ count 1) sum)]))
