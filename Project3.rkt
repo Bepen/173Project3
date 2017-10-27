@@ -13,7 +13,13 @@
 (define (fold-left-helper start function list value)
   (cond
     [(empty? list) value]
-    [else (fold-left-helper start function (cdr list) (function value (car list)))]))
+    [(equal? function '-) (fold-left-helper start function (cdr list) (- value (car list)))]
+    [(equal? function '+) (fold-left-helper start function (cdr list) (+ value (car list)))]
+    [(equal? function '/) (fold-left-helper start function (cdr list) (/ value (car list)))]
+    [(equal? function 'quotient) (fold-left-helper start function (cdr list) (quotient value (car list)))]
+    [(equal? function 'remainder) (fold-left-helper start function (cdr list) (remainder value (car list)))]
+    [(equal? function 'modulo) (fold-left-helper start function (cdr list) (modulo value (car list)))]
+    [else 0]))
 
 ;(Main)
 (define (fold-left initialValue function list)
