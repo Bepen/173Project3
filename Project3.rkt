@@ -53,6 +53,36 @@
     [(= inp2 0) inp1]
     [else (gcd inp2 (modulo inp1 inp2))]))
 
+;REQUIRED FUNCTIONS
+;Sum of Factors (helper)
+(define (sumOfFactorsHelp num count sum)
+  (cond
+    [(= count num) sum]
+    [(= (modulo num count) 0) (sumOfFactorsHelp num (+ count 1) (+ sum count))]
+    [else (sumOfFactorsHelp num (+ count 1) sum)]))
+
+;Sum of Factors (main)
+(define (sumOfFactors num)
+  (sumOfFactorsHelp num 1 0))
+
+;Perfect Number
+(define (perfect? num)
+  (if (= (sumOfFactors num) num)
+      #t
+      #f))
+
+;Abundant Number
+(define (abundant? num)
+  (if (> (sumOfFactors num) num)
+      #t
+      #f))
+
+;Deficient Number
+(define (deficient? num)
+  (if (< (sumOfFactors num) num)
+      #t
+      #f))
+
 ;EXTRA CREDIT
 ;LCM
 (define (lcm inp1 inp2)
@@ -139,6 +169,28 @@
 (gcd readGCDNum1 readGCDNum2)
 (display "\n")
 
+;Runs the Required Mathematical Functions
+;Perfect Number
+(display "Enter a number to determine whether it is a perfect number: ")
+(define perfectTest (read))
+(display "Value: ")
+(perfect? perfectTest)
+(display "\n")
+
+;Abundant Number
+(display "Enter a number to determine whether it is a abundant number: ")
+(define abundantTest (read))
+(display "Value: ")
+(abundant? abundantTest)
+(display "\n")
+
+;Deficient Number
+(display "Enter a number to determine whether it is a deficient number: ")
+(define deficientTest (read))
+(display "Value: ")
+(deficient? deficientTest)
+(display "\n")
+
 ;Extra Credit
 (display "Extra Credit Questions")
 (display "\n")
@@ -174,5 +226,5 @@
 (display "Enter third number: ")
 (define tri-num3 (read))
 (display "Are these three numbers part of a pythagorean triple: ")
-(myright-tri tri-num1 tri-num1 tri-num1)
+(myright-tri tri-num1 tri-num2 tri-num3)
 (display "\n")
