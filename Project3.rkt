@@ -18,7 +18,7 @@
 ;(Helper)
 (define (indexOfHelper element list count)
   (cond
-    [(empty? list) (void)]
+    [(empty? list) -1]
     [(eq? element (car list)) count]
     [else (indexOfHelper element (cdr list) (+ count 1))]))
 
