@@ -8,11 +8,16 @@
       )
   )
 
-;Reverse
-(define (myreverse listR)
-  (if (= (mycardinality listR) 1)
-      listR
-      (cons (myreverse (cdr listR)) (car listR))))
+;Fold-Left
+;(Helper)
+(define (fold-left-helper start function list value)
+  (cond
+    [(empty? list) value]
+    [else (fold-left-helper start function (cdr list) (function value (car list)))]))
+
+;(Main)
+(define (fold-left initialValue function list)
+  (fold-left-helper initialValue function list initialValue))
 
 ;Index Of
 ;(Helper)
@@ -120,7 +125,13 @@
     [(= (+ (* num1 num1) (* num2 num2)) (* num3 num3)) #t]
     [else #f]))
 
-;Runs the List Functions (Append, Reverse, indexOf)
+;Reverse
+(define (myreverse listR)
+  (if (= (mycardinality listR) 1)
+      listR
+      (cons (myreverse (cdr listR)) (car listR))))
+
+;Runs the List Functions (Append, IndexOf, Fold-Left)
 ;Runs Append
 (display "Append two lists")
 (display "\n")
@@ -130,15 +141,6 @@
 (define listB (read))
 (display "Appending the first and second list: ")
 (myappend listA listB)
-(display "\n")
-
-;Run Reverse
-(display "Reverse a list")
-(display "\n")
-(display "Create a list: ")
-(define listR (read))
-(display "The reverse of that list is: ")
-(myreverse listR)
 (display "\n")
 
 ;Runs IndexOf
@@ -151,6 +153,18 @@
 (indexOf indexElement indexList)
 (display "\n")
 
+;Runs Fold-Left
+(display "Runs Fold-Left")
+(display "\n")
+(display "Enter Initial Value: ")
+(define initialValue (read))
+(display "Enter Function: ")
+(define functionFold (read))
+(display "Enter List: ")
+(define foldList (read))
+(fold-left initialValue functionFold foldList)
+(display foldList)
+(display "\n")
 
 ;Runs the Set Functions (Membership, Cardinality, Subtset)
 ;Runs Membership
@@ -266,4 +280,13 @@
 (define tri-num3 (read))
 (display "Are these three numbers part of a pythagorean triple: ")
 (myright-tri tri-num1 tri-num2 tri-num3)
+(display "\n")
+
+;Run Reverse
+(display "Reverse a list")
+(display "\n")
+(display "Create a list: ")
+(define listR (read))
+(display "The reverse of that list is: ")
+(myreverse listR)
 (display "\n")
