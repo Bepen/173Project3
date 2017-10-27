@@ -14,6 +14,18 @@
       listR
       (cons (myreverse (cdr listR)) (car listR))))
 
+;Index Of
+;(Helper)
+(define (indexOfHelper element list count)
+  (cond
+    [(empty? list) (void)]
+    [(eq? element (car list)) count]
+    [else (indexOfHelper element (cdr list) (+ count 1))]))
+
+;(Main)
+(define (indexOf element list)
+  (indexOfHelper element list 0))
+
 ;SET FUNCTIONS
 ;Subset
 (define (mysubset? sub super)
@@ -108,7 +120,7 @@
     [(= (+ (* num1 num1) (* num2 num2)) (* num3 num3)) #t]
     [else #f]))
 
-;Runs the List Functions (TBD)
+;Runs the List Functions (Append, Reverse, indexOf)
 ;Runs Append
 (display "Append two lists")
 (display "\n")
@@ -121,11 +133,24 @@
 (display "\n")
 
 ;Run Reverse
+(display "Reverse a list")
+(display "\n")
 (display "Create a list: ")
 (define listR (read))
 (display "The reverse of that list is: ")
 (myreverse listR)
 (display "\n")
+
+;Runs IndexOf
+(display "Index of an element")
+(display "\n")
+(display "Enter element: ")
+(define indexElement (read))
+(display "Enter List: ")
+(define indexList (read))
+(indexOf indexElement indexList)
+(display "\n")
+
 
 ;Runs the Set Functions (Membership, Cardinality, Subtset)
 ;Runs Membership
